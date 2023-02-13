@@ -40,22 +40,21 @@ void loop(){
     Serial.print("direito: ");
     Serial.println(sensor_direito.lerCor());
     delay(500);
-    if(sensor_esquerdo.lerCor() > 400 && sensor_direito.lerCor() < 250){
+    
     while(sensor_esquerdo.lerCor() > 400 && sensor_direito.lerCor() < 250){
         motor_esquerdo.andar_para_tras(140);
         motor_direito.andar_para_frente(140);
     }
-    }
-    else if(sensor_direito.lerCor() > 400 && sensor_esquerdo.lerCor() < 250){
+    
     while(sensor_direito.lerCor() > 400 && sensor_esquerdo.lerCor() < 250){
-        motor_direito.andar_para_tras(140);
+        motor_direito.andar_para_tras(200);
         motor_esquerdo.andar_para_frente(140);
+    
     }
-    }
-    else{
-    motor_direito.andar_para_frente(140);
+    
+    motor_direito.andar_para_tras(140);
     motor_esquerdo.andar_para_frente(140);
-    }
+    
 }
 
 

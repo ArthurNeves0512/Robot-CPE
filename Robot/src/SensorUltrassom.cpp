@@ -28,36 +28,6 @@ para dar a distância em centimetros.
 	mas acredito que o pino echo precisa ser analógico.ou né pwm
 */
 
-/*
-float SensorUltrassom::distancia_filtro(){
-	digitalWrite(this->trigger, HIGH);
-	delayMicroseconds(10);
-	digitalWrite(this->trigger, LOW);
-	float ultimas_distancias[3];
-	int cont =0;
-	while(cont<=3){
-		float tempoEcho = pulseIn(this->echo, HIGH);
-		this->dist = tempoEcho/58.8235;
-		ultimas_distancias[cont]= this->dist;
-		cont++;
-	}
-	cont =0;	
-	float media = (ultimas_distancias[0]+ultimas_distancias[1]+ultimas_distancias[2])/3;
-	float valor1 =ultimas_distancias[0];
-	float valor2 =ultimas_distancias[1];
-	float valor3 =ultimas_distancias[2];
-	float dp= (pow((valor1-media),2) + pow((valor2-media),2) + pow((valor3-media),2))/3;
-	Serial.println(dp);
-	dp = pow(dp, 0.5);
-	//Serial.println(dp);
-	if (dp<=10){
-		this->dist = dp;
-		return this->dist;	
-	}
-	ultimas_distancias[0]=0;ultimas_distancias[0]=0;ultimas_distancias[0]=0;
-	delay(100);
-}
-*/
 float SensorUltrassom::distancia(){
 	digitalWrite(this->trigger, LOW);
 	delayMicroseconds(2);
